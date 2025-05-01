@@ -13,7 +13,7 @@ const Navbar = () => {
       </li>
       <li className="m-1 text-accent font-semibold">
         {" "}
-        <NavLink to="/login">
+        <NavLink to="/auth/login">
           Login
         </NavLink>
       </li>
@@ -24,7 +24,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar mt-4">
+    <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -59,7 +59,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <img className="mr-4 w-8" src="https://i.ibb.co.com/3m7NWRv9/user.png" alt="" />
-       <Link to='/login'> <button className="btn btn-primary px-6 mr-4 text-white">Login</button></Link>
+       <Link to='/auth/login'> <button className="btn btn-primary px-6 mr-4 text-white">Login</button></Link>
       </div>
     </div>
   );

@@ -11,9 +11,9 @@ const NewsCard = ({ news }) => {
   let stars = [];
   for (let i = 1; i <= totalStars; i++) {
     if (i <= rating) {
-      stars.push(<FaStar key={i} size={17} className="text-orange-500" />);
+      stars.push(<FaStar key={i} size={16} className="text-orange-500" />);
     } else {
-      stars.push(<FaRegStar key={i} size={17} className="text-orange-500" />);
+      stars.push(<FaRegStar key={i} size={16} className="text-orange-500" />);
     }
   }
   return (
@@ -56,7 +56,8 @@ const NewsCard = ({ news }) => {
         </div>
         <div className="flex justify-between items-center mb-4">
           <div className="flex gap-2 items-center">
-            {stars} {news.rating.number}
+            <div className="flex gap-1">{stars}</div>
+            <div>{news.rating.number}</div>
           </div>
           <div className="flex gap-2 items-center">
             <FaEye size={17} /> {news.total_view}

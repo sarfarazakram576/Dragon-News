@@ -1,5 +1,7 @@
 a.active {
     font-weight: bold;
     color: black;
+}
+.navbar a.active {
     text-decoration: underline;
 }

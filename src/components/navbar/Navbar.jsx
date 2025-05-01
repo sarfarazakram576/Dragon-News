@@ -58,7 +58,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <img className="mr-4 w-8" src="https://media-hosting.imagekit.io/ea9429ae6aa7464d/user.png?Expires=1840644547&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fbFhBcdfCOST7zsQw2nRSjmwEJV3VLk5osaZLgLUN0lD4ep~AoV9gHGqqiM6PG57PAY2alunKce9BPJ-hrFA7ETslLilWMlNaqvI6RzIVEll2F-dt68-G1Mn3408GuzHU9Srx8CcXodeIUVHacMmxcOUcvCTeYFOTL2zuNYQos~At49PKdzdOhv~c~-gUyxFGzKRNllx1-~eHFpCxQfKEMR3dibylQv-T3tR~uHHU6RKP8dtSf-vqId704E1t6jdZCUKFOE53H-UNElDcrWGykm7OxFX42aZ-1e~qXfBZ5PjfIYUHJwq-SYick4wmhYYlU2SSGfYEkvchcQVd24SaA__" alt="" />
+        <img className="mr-4 w-8" src="https://i.ibb.co.com/3m7NWRv9/user.png" alt="" />
        <Link to='/login'> <button className="btn btn-primary px-6 mr-4 text-white">Login</button></Link>
       </div>
     </div>

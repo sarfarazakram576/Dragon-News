@@ -1,0 +1,10 @@
+#categories a.active{
+    background-color: var(--color-base-300);
+    border-radius: 5px;
+}
+#categories a:hover{
+    color: black;
+    font-weight: bold;
+    background-color: var(--color-base-300);
+    border-radius: 5px;
+}

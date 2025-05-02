@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     Component: HomeLayout,
     loader: () => fetch("/news.json"),
     hydrateFallbackElement: (
-      <div className="flex justify-center">
+      <div className="flex justify-center items-center h-screen">
         <span className="loading loading-bars loading-xl"></span>
       </div>
     ),

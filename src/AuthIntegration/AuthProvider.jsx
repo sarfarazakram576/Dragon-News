@@ -3,6 +3,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -38,13 +39,18 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signOut(auth);
   };
-  const updateUserProfile = (name, photo)=>{
-    setLoading(true)
-   return updateProfile(auth.currentUser, {
+  const updateUserProfile = (name, photo) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
-  }
+  };
+  const resetPassword = (email) => {
+    setLoading(true);
+    return sendPasswordResetEmail(auth, email);
+  };
+
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -65,7 +71,8 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     githubLogin,
     logOutUser,
-    updateUserProfile
+    updateUserProfile,
+    resetPassword,
   };
   return <AuthContext value={userInfo}> {children} </AuthContext>;
 };

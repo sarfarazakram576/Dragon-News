@@ -12,6 +12,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
+    loader: () => fetch("/news.json"),
+    hydrateFallbackElement: (
+      <div className="flex justify-center">
+        <span className="loading loading-bars loading-xl"></span>
+      </div>
+    ),
     children: [
       {
         index: true,
@@ -51,11 +57,7 @@ const router = createBrowserRouter([
         <NewsDetailsPage></NewsDetailsPage>
       </PrivateRoutes>
     ),
-    hydrateFallbackElement: (
-      <div className="flex justify-center">
-       
-      </div>
-    ),
+    hydrateFallbackElement: <div className="flex justify-center"></div>,
   },
   {
     path: "*",

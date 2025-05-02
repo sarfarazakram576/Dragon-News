@@ -1,18 +1,19 @@
 import React from "react";
 import Header from "../components/header/Header";
-import { Outlet, useNavigation } from "react-router";
+import { Outlet, useLoaderData, useNavigation } from "react-router";
 import LatestNews from "../components/lastesNews/LatestNews";
 import Navbar from "../components/navbar/Navbar";
 import LeftAside from "../components/LeftAside/LeftAside";
 import RightAside from "../components/RightAside/RightAside";
 
 const HomeLayout = () => {
+  const newsData = useLoaderData()
   const { state } = useNavigation();
   return (
     <div className="md:container mx-auto">
       <header>
         <Header></Header>
-        <LatestNews></LatestNews>
+        <LatestNews newsData={newsData}></LatestNews>
         <div className="mt-4">
           <Navbar></Navbar>
         </div>{" "}

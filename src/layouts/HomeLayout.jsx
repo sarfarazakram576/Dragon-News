@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../components/header/Header";
-import { Outlet } from "react-router";
+import { Outlet, useNavigation } from "react-router";
 import LatestNews from "../components/lastesNews/LatestNews";
 import Navbar from "../components/navbar/Navbar";
 import LeftAside from "../components/LeftAside/LeftAside";
 import RightAside from "../components/RightAside/RightAside";
 
 const HomeLayout = () => {
+  const { state } = useNavigation();
   return (
     <div className="md:container mx-auto">
       <header>
@@ -21,7 +22,13 @@ const HomeLayout = () => {
           <LeftAside></LeftAside>
         </aside>
         <section className="col-span-6">
-          <Outlet></Outlet>
+          {state === "loading" ? (
+            <div className="flex justify-center">
+              <span className="loading loading-spinner loading-xl"></span>
+            </div>
+          ) : (
+            <Outlet></Outlet>
+          )}
         </section>
         <section className="col-span-3 sticky h-fit top-0">
           <RightAside></RightAside>

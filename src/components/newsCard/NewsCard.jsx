@@ -3,6 +3,7 @@ import { CiBookmark, CiShare2 } from "react-icons/ci";
 import { FaEye } from "react-icons/fa6";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { format } from "date-fns";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const rating = Math.round(news.rating.number);
@@ -18,7 +19,7 @@ const NewsCard = ({ news }) => {
   }
   return (
     <div className="rounded-md border overflow-hidden mb-6 border-gray-200">
-      {/* top  */}
+   
       <div className="flex justify-between p-3 items-center bg-base-200 mb-6">
         <div className="flex gap-4 items-center">
           <img
@@ -50,9 +51,9 @@ const NewsCard = ({ news }) => {
           />
 
           <p className="text-[13px] text-accent line-clamp-4">{news.details}</p>
-          <p className="hover:underline font-semibold text-orange-500 text-[13px] mt-2 cursor-pointer">
+          <Link to={`/newsDetails/${news.id}`} className="hover:underline font-semibold text-orange-500 text-[13px] mt-2 cursor-pointer">
             Read More
-          </p>
+          </Link>
         </div>
         <div className="flex justify-between items-center mb-4">
           <div className="flex gap-2 items-center">

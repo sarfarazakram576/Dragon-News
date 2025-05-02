@@ -1,25 +1,28 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router";
-import './Navbar.css'
+import "./Navbar.css";
+import { AuthContext } from "../../AuthIntegration/AuthContext";
 
 const Navbar = () => {
+  const { user, logOutUser } = use(AuthContext);
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   const links = (
     <>
       <li className="m-1 text-accent font-semibold">
         {" "}
-        <NavLink to="/">
-          Home
-        </NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li className="m-1 text-accent font-semibold">
         {" "}
-        <NavLink to="/auth/login">
-          Login
-        </NavLink>
+        <NavLink to="/auth/login">Login</NavLink>
       </li>
       <li className="m-1 text-accent font-semibold">
         {" "}
-        <NavLink to='/career'>Career</NavLink>
+        <NavLink to="/auth/register">Register</NavLink>
       </li>
     </>
   );
@@ -53,13 +56,37 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-center hidden md:flex">
-        <ul className="menu menu-horizontal px-1">
-        {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <img className="mr-4 w-8" src="https://i.ibb.co.com/3m7NWRv9/user.png" alt="" />
-       <Link to='/auth/login'> <button className="btn btn-primary px-6 mr-4 text-white">Login</button></Link>
+        {user ? (
+          <>
+          
+            <p className="text-sm mr-2 font-semibold"> {user.displayName}</p>
+            <img className="mr-2 w-12 h-12 rounded-full" src={user.photoURL} alt="" />
+            <button
+              onClick={handleLogOut}
+              className="btn btn-primary px-6 mr-4 text-white"
+            >
+              Log Out
+            </button>
+          </>
+        ) : (
+          <>
+            {" "}
+            <img
+              className="mr-4 w-8"
+              src="https://i.ibb.co.com/3m7NWRv9/user.png"
+              alt=""
+            />
+            <Link to="/auth/login">
+              {" "}
+              <button className="btn btn-primary px-6 mr-4 text-white">
+                Login
+              </button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
